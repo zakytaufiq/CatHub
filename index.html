@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cat Hub</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="aset/css/style.css" rel="stylesheet">
+
+</head>
+<body>
+
+  <div class="container py-4">
+    <h1 class="text-center mb-4">Gallery of Cats</h1>
+  
+    <!-- Dropdown untuk filter berdasarkan breed -->
+    <div class="mb-3">
+      <select id="breedFilter" class="form-select" aria-label="Filter by breed">
+        <option value="">All Breeds</option>
+        <!-- Opsi breed akan ditambahkan secara dinamis melalui JavaScript -->
+      </select>
+    </div>
+  
+    <div id="catCards" class="row row-cols-1 row-cols-md-3 g-4">
+      <!-- Tempat untuk menampilkan card kucing -->
+    </div>
+  
+    <!-- Pagination -->
+    <nav aria-label="Cat Gallery Pagination">
+      <ul id="pagination" class="pagination justify-content-center mt-4">
+        <!-- Nanti opsi pagination akan ditambahkan secara dinamis -->
+      </ul>
+    </nav>
+  
+  </div>
+
+<!-- Bootstrap JavaScript dan dependensi lainnya (Opsional) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Custom JavaScript -->
+<script src="aset/js/script.js"></script> <!-- Panggil file JavaScript terpisah -->
+</body>
+</html>

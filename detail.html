@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cat Details</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <style>
+    /* Tambahkan gaya kustom di sini sesuai kebutuhan */
+  </style>
+</head>
+<body>
+
+<div class="container py-4">
+  <h1 class="text-center mb-4">Cat Details</h1>
+  <div id="catDetail" class="card shadow-sm">
+    <div class="card-body">
+      <h2 class="card-title mb-3" id="detailName"></h2>
+      <img src="" class="card-img-top mb-3" id="detailImage" alt="Cat">
+      <p class="card-text" id="detailDescription"></p>
+      
+      <!-- Tabel untuk menampilkan detail tambahan -->
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <th scope="row">Origin</th>
+            <td id="detailOrigin"></td>
+          </tr>
+          <tr>
+            <th scope="row">Temperament</th>
+            <td id="detailTemperament"></td>
+          </tr>
+          <tr>
+            <th scope="row">Life Span</th>
+            <td id="detailLifeSpan"></td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <a href="#" onclick="goBack()" class="btn btn-primary mt-3">Back to Gallery</a>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JavaScript dan dependensi lainnya (Opsional) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Custom JavaScript -->
+<script>
+  // Fungsi untuk kembali ke halaman galeri
+  function goBack() {
+    window.history.back();
+  }
+
+  // Ambil parameter ID dari URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const catId = urlParams.get('id');
+
+  // Ambil data kucing berdasarkan ID
+  fetch(`https://api.thecatapi.com/v1/images/${catId}`, {
+    headers: {
+      'x-api-key': 'live_0Qho5LTKmutPoee1F3ES2uAbnnQqj6UzuO8ZD3Qwa2eK2lnkDtOWGbuz9ZimQ9Tg' // Ganti dengan API key Anda
+    }
+  })
+  .then(response => response.json())
+  .then(data => {
+    const breed = data.breeds.length > 0 ? data.breeds[0] : {};
+    document.getElementById('detailName').textContent = `Breed: ${breed.name}`;
+    document.getElementById('detailImage').src = data.url;
+    document.getElementById('detailDescription').textContent = breed.description;
+    document.getElementById('detailOrigin').textContent = breed.origin;
+    document.getElementById('detailTemperament').textContent = breed.temperament;
+    document.getElementById('detailLifeSpan').textContent = breed.life_span;
+  })
+  .catch(error => {
+    console.error('Error fetching cat details: ', error);
+  });
+</script>
+
+</body>
+</html>
