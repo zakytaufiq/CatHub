@@ -1,0 +1,29 @@
+/* CSS untuk semua halaman html */
+/* Background image */
+.bg-cat {
+  background-image: url('assets/image/bg1.png'); /* path URL gambar latar belakang Anda */
+  background-blend-mode: color;
+  background-color: rgba(255, 255, 255, 0.85);
+  }
+
+
+h1 {
+  font-weight: bold;
+  color: hsl(20, 89%, 60%);
+  text-transform: uppercase;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* btn di halaman detail */
+.card-body .btn-primary {
+  background-color: hsl(20, 89%, 60%);
+  border: 0;
+}
+
+.card-body .btn-primary:hover{
+  background-color: hsl(20, 56%, 12%);
+  box-shadow: 0px 10px 36px rgba(0,0,0,0.15); 
+}
