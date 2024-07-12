@@ -3,23 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cat Details</title>
+  
+  <!-- Memanggil CSS Lokal-->
+  <link rel="stylesheet" href="style.css">
+
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Custom CSS -->
-  <style>
-    /* Tambahkan gaya kustom di sini sesuai kebutuhan */
-  </style>
+  
+  <title>Cat Details</title>
+
 </head>
-<body>
+<body class="bg-cat">
 
 <div class="container py-4">
   <h1 class="text-center mb-4">Cat Details</h1>
   <div id="catDetail" class="card shadow-sm">
     <div class="card-body">
-      <h2 class="card-title mb-3" id="detailName"></h2>
       <img src="" class="card-img-top mb-3" id="detailImage" alt="Cat">
-      <p class="card-text" id="detailDescription"></p>
+      <!-- Tempat untuk menampilkan gambar kucing -->
+      <h2 class="card-title text-center mb-3" id="detailName">
+      <!-- Tempat untuk menampilkan Nama Ras Kucing -->
+      </h2>
+      <p class="card-text" id="detailDescription">
+      <!-- Tempat untuk menampilkan Detail Ras Kucing -->
+      </p>
       
       <!-- Tabel untuk menampilkan detail tambahan -->
       <table class="table table-bordered">
@@ -34,7 +41,7 @@
           </tr>
           <tr>
             <th scope="row">Life Span</th>
-            <td id="detailLifeSpan"></td>
+            <td id="detailLifeSpan"> </td>
           </tr>
         </tbody>
       </table>
@@ -66,12 +73,12 @@
   .then(response => response.json())
   .then(data => {
     const breed = data.breeds.length > 0 ? data.breeds[0] : {};
-    document.getElementById('detailName').textContent = `Breed: ${breed.name}`;
+    document.getElementById('detailName').textContent = `Breed : ${breed.name}`;
     document.getElementById('detailImage').src = data.url;
     document.getElementById('detailDescription').textContent = breed.description;
     document.getElementById('detailOrigin').textContent = breed.origin;
     document.getElementById('detailTemperament').textContent = breed.temperament;
-    document.getElementById('detailLifeSpan').textContent = breed.life_span;
+    document.getElementById('detailLifeSpan').textContent = breed.life_span + " Years";
   })
   .catch(error => {
     console.error('Error fetching cat details: ', error);
