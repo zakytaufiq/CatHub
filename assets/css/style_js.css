@@ -1,0 +1,58 @@
+/* CSS untuk halaman html yang dipanggil di js */
+
+/* Card di JS */
+.card-img {
+    height: 250px; /* Atur tinggi gambar sesuai kebutuhan */
+    width: 100%;
+    object-fit: cover;
+  }
+  .card-body {
+    height: 100%;
+    overflow: hidden;
+  }
+
+
+.card .card-content {
+  position: relative;
+  overflow: hidden;
+}
+
+.card .card-content img {
+  transition: 0.3s;
+}
+
+.card .card-content .card-info {
+  opacity: 0;
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  transition: opacity 0.3s;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.card .card-content .card-info h5 {
+  padding: 5px 10px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: hsl(20, 89%, 60%);
+  margin-top: auto; 
+  text-transform: uppercase;
+}
+
+.card .card-content:hover .card-info {
+opacity: 1;
+}
+
+.card .card-content:hover img {
+transform: scale(1.1);
+}
+
+/* Pagination di js */
+#pagination a{
+  color: hsl(20, 89%, 60%);
+}
+
